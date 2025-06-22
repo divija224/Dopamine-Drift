@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee 
+         http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+    
+    <display-name>Dopamine Detox Habit Tracker</display-name>
+    
+    <!-- Welcome file list -->
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+    
+    <!-- Authentication Servlet -->
+    <servlet>
+        <servlet-name>AuthServlet</servlet-name>
+        <servlet-class>com.dopaminedetox.servlet.AuthServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AuthServlet</servlet-name>
+        <url-pattern>/auth/*</url-pattern>
+    </servlet-mapping>
+    
+    <!-- Dashboard Servlet -->
+    <servlet>
+        <servlet-name>DashboardServlet</servlet-name>
+        <servlet-class>com.dopaminedetox.servlet.DashboardServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DashboardServlet</servlet-name>
+        <url-pattern>/dashboard</url-pattern>
+    </servlet-mapping>
+    
+    <!-- Goals Servlet -->
+    <servlet>
+        <servlet-name>GoalsServlet</servlet-name>
+        <servlet-class>com.dopaminedetox.servlet.GoalsServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GoalsServlet</servlet-name>
+        <url-pattern>/goals/*</url-pattern>
+    </servlet-mapping>
+    
+    <!-- Journal Servlet -->
+    <servlet>
+        <servlet-name>JournalServlet</servlet-name>
+        <servlet-class>com.dopaminedetox.servlet.JournalServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>JournalServlet</servlet-name>
+        <url-pattern>/journal/*</url-pattern>
+    </servlet-mapping>
+    
+    <!-- Profile Servlet -->
+    <servlet>
+        <servlet-name>ProfileServlet</servlet-name>
+        <servlet-class>com.dopaminedetox.servlet.ProfileServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ProfileServlet</servlet-name>
+        <url-pattern>/profile</url-pattern>
+    </servlet-mapping>
+    
+    <!-- Activities API Servlet -->
+    <servlet>
+        <servlet-name>ActivitiesServlet</servlet-name>
+        <servlet-class>com.dopaminedetox.servlet.ActivitiesServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ActivitiesServlet</servlet-name>
+        <url-pattern>/api/activities/*</url-pattern>
+    </servlet-mapping>
+    
+    <!-- Session timeout (30 minutes) -->
+    <session-config>
+        <session-timeout>30</session-timeout>
+    </session-config>
+    
+    <!-- Error pages -->
+    <error-page>
+        <error-code>404</error-code>
+        <location>/WEB-INF/jsp/error/404.jsp</location>
+    </error-page>
+    
+    <error-page>
+        <error-code>500</error-code>
+        <location>/WEB-INF/jsp/error/500.jsp</location>
+    </error-page>
+</web-app>
